@@ -1,0 +1,764 @@
+.container3D {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  max-height: calc(90vh - 8rem);
+  perspective: 1000px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scene3D {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animationPhase {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Web Development Animations */
+.codingAnimation {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.codeEditor {
+  width: 400px;
+  max-width: 100%;
+  height: 350px;
+  max-height: 100%;
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+  position: relative;
+}
+
+.codeHeader {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.codeDots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.codeDots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.6);
+}
+
+.codeDots span:nth-child(2) {
+  background: rgba(255, 255, 0, 0.6);
+}
+
+.codeDots span:nth-child(3) {
+  background: rgba(0, 255, 0, 0.6);
+}
+
+.codeTitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-family: 'Courier New', monospace;
+}
+
+.codeLines {
+  padding: 1.5rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.codeLine {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.lineNumber {
+  color: var(--text-secondary);
+  min-width: 30px;
+  text-align: right;
+}
+
+.codeText {
+  flex: 1;
+}
+
+.codeText:first-of-type {
+  color: #c792ea;
+}
+
+.codeText:nth-of-type(2) {
+  color: #82aaff;
+}
+
+.codeText:nth-of-type(3) {
+  color: #ffcb6b;
+}
+
+.cursor {
+  color: #00f0ff;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.codingGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.webAppAnimation {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.browserWindow {
+  width: 450px;
+  max-width: 100%;
+  height: 400px;
+  max-height: 100%;
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+}
+
+.browserHeader {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.browserDots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.browserDots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.6);
+}
+
+.browserDots span:nth-child(2) {
+  background: rgba(255, 255, 0, 0.6);
+}
+
+.browserDots span:nth-child(3) {
+  background: rgba(0, 255, 0, 0.6);
+}
+
+.browserUrl {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-family: 'Courier New', monospace;
+}
+
+.webContent {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: calc(100% - 80px);
+}
+
+.webElement {
+  background: var(--gradient);
+  border-radius: 10px;
+  padding: 1.5rem;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.webHeader {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.webContentArea {
+  text-align: center;
+  font-size: 1rem;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.webFooter {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Mobile App Animations */
+.mobileDevAnimation,
+.mobileAppAnimation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.phoneFrame {
+  width: 200px;
+  height: 400px;
+  background: rgba(10, 10, 15, 0.9);
+  border: 3px solid rgba(0, 240, 255, 0.4);
+  border-radius: 30px;
+  padding: 1rem;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+  position: relative;
+}
+
+.phoneFrame::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.phoneScreen {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.appIcon {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.codeSnippet {
+  width: 100%;
+}
+
+.mobileCode {
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+  color: #00f0ff;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.mobileApp {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobileHeader {
+  background: var(--gradient);
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+}
+
+.mobileContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.mobileCard {
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  flex: 1;
+}
+
+/* UI/UX Design Animations */
+.designAnimation,
+.uiAnimation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.designCanvas {
+  width: 400px;
+  height: 350px;
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 15px;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+}
+
+.designElement {
+  background: var(--gradient);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  height: 60px;
+  opacity: 0.8;
+}
+
+.colorPalette {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.colorSwatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.uiMockup {
+  width: 400px;
+  height: 350px;
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 15px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+}
+
+.uiComponent {
+  background: var(--gradient);
+  border-radius: 10px;
+  padding: 1.5rem;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.uiHeader {
+  font-size: 1.1rem;
+}
+
+.uiContent {
+  font-size: 1rem;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uiFooter {
+  font-size: 0.9rem;
+}
+
+/* SEO Animations */
+.seoAnimation,
+.rankingAnimation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.searchEngine {
+  width: 400px;
+  position: relative;
+}
+
+.searchBar {
+  width: 100%;
+  height: 60px;
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  gap: 1rem;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+}
+
+.searchIcon {
+  color: #00f0ff;
+  font-size: 1.5rem;
+}
+
+.searchText {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+}
+
+.seoMetrics {
+  display: flex;
+  gap: 2rem;
+}
+
+.metric {
+  background: var(--gradient);
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.rankingList {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rankingItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.rankNumber {
+  width: 50px;
+  height: 50px;
+  background: var(--gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 900;
+  font-size: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.rankBar {
+  flex: 1;
+  height: 20px;
+  background: var(--gradient);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+}
+
+.trendArrow {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: #00ff88;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.8));
+}
+
+/* Performance Animations */
+.performanceAnimation,
+.optimizationAnimation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.speedMeter {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  background: rgba(10, 10, 15, 0.9);
+  border: 3px solid rgba(0, 240, 255, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+}
+
+.speedNeedle {
+  position: absolute;
+  width: 4px;
+  height: 100px;
+  background: linear-gradient(to top, #00f0ff, #00ff88);
+  transform-origin: bottom center;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.8);
+}
+
+.speedLabels {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.performanceStats {
+  width: 300px;
+}
+
+.statBar {
+  background: var(--gradient);
+  padding: 1.5rem;
+  border-radius: 12px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.optimizationSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 300px;
+}
+
+.optimizationStep {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.optimizationStep svg {
+  color: #00f0ff;
+  font-size: 1.5rem;
+}
+
+.speedBoost {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 4rem;
+  filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.8));
+}
+
+/* Cloud Solutions Animations */
+.cloudAnimation,
+.cloudDeployAnimation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cloudInfrastructure {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.cloudServer {
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 15px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-width: 200px;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+}
+
+.cloudServer svg {
+  font-size: 3rem;
+  color: #00f0ff;
+  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.8));
+}
+
+.serverLabel {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.deploymentFlow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.deployStep {
+  background: var(--gradient);
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  min-width: 120px;
+  text-align: center;
+}
+
+.deployArrow {
+  font-size: 2.5rem;
+  color: #00f0ff;
+  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.8));
+}
+
+/* Default Animations */
+.defaultAnimation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.defaultIcon {
+  font-size: 6rem;
+  filter: drop-shadow(0 0 30px rgba(0, 240, 255, 0.8));
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .codeEditor,
+  .browserWindow,
+  .designCanvas,
+  .uiMockup {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .phoneFrame {
+    width: 180px;
+    height: 360px;
+  }
+
+  .searchEngine,
+  .rankingList {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .speedMeter {
+    width: 200px;
+    height: 200px;
+  }
+}

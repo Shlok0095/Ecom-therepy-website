@@ -1,0 +1,20 @@
+.animatedText {
+  display: inline-block;
+}
+
+.char {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  animation: charGlow 3s ease-in-out infinite;
+  animation-delay: calc(var(--char-index, 0) * 0.1s);
+}
+
+@keyframes charGlow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.5);
+  }
+}
+

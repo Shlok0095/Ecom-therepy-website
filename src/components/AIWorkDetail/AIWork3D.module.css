@@ -1,0 +1,822 @@
+.container3D {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  max-height: calc(90vh - 8rem);
+  perspective: 1200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scene3D {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animationPhase {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* AI Analytics Animations */
+.dataProcessing {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  position: relative;
+}
+
+.dataFlow {
+  width: 400px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(0, 240, 255, 0.3);
+  border-radius: 10px;
+  background: rgba(10, 10, 15, 0.5);
+}
+
+.dataPacket {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: var(--gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+}
+
+.processingCenter {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brainIcon {
+  font-size: 4rem;
+  color: #00f0ff;
+  filter: drop-shadow(0 0 30px rgba(0, 240, 255, 0.8));
+  z-index: 2;
+}
+
+.processingRing {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgba(0, 240, 255, 0.5);
+  border-radius: 50%;
+  border-top-color: transparent;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+}
+
+.insightsDisplay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.chartContainer {
+  width: 400px;
+  height: 250px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 2rem;
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+}
+
+.chartBar {
+  flex: 1;
+  background: var(--gradient);
+  border-radius: 8px 8px 0 0;
+  min-height: 50px;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+  position: relative;
+}
+
+.chartBar::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: rgba(0, 240, 255, 0.8);
+  border-radius: 5px;
+}
+
+.insightLabels {
+  display: flex;
+  gap: 1rem;
+  width: 400px;
+  justify-content: space-around;
+}
+
+.label {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Chatbot Animations */
+.chatbotTraining {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.neuralNetwork {
+  width: 400px;
+  height: 300px;
+  position: relative;
+}
+
+.neuralNode {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #00ff88 0%, #00f0ff 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 15px rgba(0, 255, 136, 0.8),
+    0 0 30px rgba(0, 240, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.connectionLines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.connection {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.6), transparent);
+  transform-origin: left center;
+}
+
+.chatInterface {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatWindow {
+  width: 400px;
+  height: 400px;
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 255, 136, 0.4);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
+}
+
+.userMessage {
+  align-self: flex-end;
+  background: rgba(0, 240, 255, 0.2);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  border-radius: 15px 15px 0 15px;
+  padding: 1rem 1.5rem;
+  color: var(--text-primary);
+  max-width: 70%;
+}
+
+.botMessage {
+  align-self: flex-start;
+  background: rgba(0, 255, 136, 0.2);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  border-radius: 15px 15px 15px 0;
+  padding: 1rem 1.5rem;
+  color: var(--text-primary);
+  max-width: 70%;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.botIcon {
+  color: #00ff88;
+  font-size: 1.5rem;
+}
+
+.typingIndicator {
+  align-self: flex-start;
+  display: flex;
+  gap: 0.3rem;
+  padding: 1rem;
+}
+
+.typingIndicator span {
+  width: 8px;
+  height: 8px;
+  background: #00ff88;
+  border-radius: 50%;
+  animation: typing 1.4s infinite;
+}
+
+.typingIndicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typingIndicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* Predictive Modeling Animations */
+.modelTraining {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  position: relative;
+}
+
+.trainingProgress {
+  width: 400px;
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+}
+
+.progressBar {
+  width: 100%;
+  height: 30px;
+  background: var(--gradient);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.progressBar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.progressLabel {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.dataPoints {
+  width: 400px;
+  height: 300px;
+  position: relative;
+}
+
+.dataPoint {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #00f0ff;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.8);
+}
+
+.predictionDisplay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline {
+  width: 500px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pastData {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.pastData .dataPoint {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: rgba(0, 240, 255, 0.6);
+  border: 2px solid #00f0ff;
+}
+
+.predictionLine {
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(90deg, #00f0ff, #00ff88);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+  position: relative;
+}
+
+.predictionLine::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid #00ff88;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+.futurePrediction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.predictedPoint {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #00ff88, #00f0ff);
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(0, 255, 136, 0.8);
+  border: 3px solid #00ff88;
+}
+
+.predictionLabel {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Content Generation Animations */
+.contentCreation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.creationCanvas {
+  width: 400px;
+  height: 350px;
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 255, 136, 0.4);
+  border-radius: 20px;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  box-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
+  position: relative;
+}
+
+.textGeneration {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.word {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.magicSparkles {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #00ff88;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.8);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateX(80px) rotate(calc(-1 * var(--angle)));
+}
+
+.contentResult {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentPreview {
+  width: 400px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contentBlock {
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 255, 136, 0.4);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+}
+
+.contentTitle {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.contentBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contentLine {
+  height: 12px;
+  background: rgba(0, 255, 136, 0.2);
+  border-radius: 6px;
+  width: 100%;
+}
+
+.contentLine:nth-child(2) {
+  width: 80%;
+}
+
+.contentLine:nth-child(3) {
+  width: 90%;
+}
+
+.imagePreview {
+  width: 100%;
+  height: 150px;
+  background: var(--gradient);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+}
+
+.magicIcon {
+  font-size: 4rem;
+  color: white;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8));
+}
+
+/* Computer Vision Animations */
+.imageAnalysis {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageFrame {
+  width: 400px;
+  height: 350px;
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.3);
+}
+
+.scanLine {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #00f0ff, transparent);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+  z-index: 10;
+}
+
+.detectionBoxes {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.detectionBox {
+  position: absolute;
+  border: 3px solid #00f0ff;
+  border-radius: 8px;
+  background: rgba(0, 240, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+  width: 100px;
+  height: 100px;
+}
+
+.boxLabel {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: #00f0ff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.recognitionResults {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recognitionGrid {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.recognitionItem {
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 15px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.eyeIcon {
+  font-size: 2rem;
+  color: #00f0ff;
+  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.8));
+}
+
+.itemLabel {
+  flex: 1;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.confidenceBar {
+  height: 20px;
+  background: var(--gradient);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+  min-width: 100px;
+}
+
+/* Automation Animations */
+.workflowDesign {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workflowSteps {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.workflowStep {
+  background: rgba(10, 10, 15, 0.9);
+  border: 2px solid rgba(0, 255, 136, 0.4);
+  border-radius: 15px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-width: 120px;
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+}
+
+.cogIcon {
+  font-size: 2.5rem;
+  color: #00ff88;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.8));
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.stepLabel {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.workflowArrow {
+  font-size: 2rem;
+  color: #00ff88;
+  filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.8));
+  transform-origin: center;
+}
+
+.automationRunning {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  position: relative;
+}
+
+.automationFlow {
+  width: 400px;
+  height: 200px;
+  position: relative;
+  border: 2px solid rgba(0, 255, 136, 0.3);
+  border-radius: 15px;
+  background: rgba(10, 10, 15, 0.5);
+  overflow: hidden;
+}
+
+.automationTask {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--gradient);
+  padding: 1rem 1.5rem;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+  white-space: nowrap;
+}
+
+.taskIcon {
+  font-size: 1.2rem;
+  animation: rotate 2s linear infinite;
+}
+
+.successIndicator {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 4rem;
+  color: #00ff88;
+  filter: drop-shadow(0 0 30px rgba(0, 255, 136, 0.8));
+}
+
+/* Default AI Animations */
+.defaultAI {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aiBrain {
+  font-size: 6rem;
+  color: #00ff88;
+  filter: drop-shadow(0 0 40px rgba(0, 255, 136, 0.8));
+}
+
+.aiPulse {
+  font-size: 6rem;
+  color: #00f0ff;
+  filter: drop-shadow(0 0 40px rgba(0, 240, 255, 0.8));
+}
+
+@media (max-width: 768px) {
+  .codeEditor,
+  .browserWindow,
+  .chatWindow,
+  .creationCanvas,
+  .imageFrame,
+  .recognitionGrid {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .chartContainer {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .workflowSteps {
+    flex-direction: column;
+  }
+
+  .workflowArrow {
+    transform: rotate(90deg);
+  }
+}

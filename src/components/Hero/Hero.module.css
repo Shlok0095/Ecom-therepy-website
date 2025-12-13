@@ -1,0 +1,659 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 8rem 2rem 4rem;
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  z-index: 10;
+}
+
+.heroText {
+  z-index: 10;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 50px;
+  color: #00f0ff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+    transform: scale(1.02);
+  }
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #00f0ff 0%, #ff00ff 50%, #00ff88 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 20px rgba(0, 240, 255, 0.5));
+  }
+  50% {
+    filter: brightness(1.3) drop-shadow(0 0 40px rgba(0, 240, 255, 0.8));
+  }
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.highlight {
+  color: #00f0ff;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+  animation: buttonGlow 3s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.1);
+  }
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, #00f0ff, #00ff88);
+  color: var(--dark-bg);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.primaryBtn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.primaryBtn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.secondaryBtn {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid #00f0ff;
+}
+
+.secondaryBtn:hover {
+  background: rgba(0, 240, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.heroVisual {
+  position: relative;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glowOrb {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  position: absolute;
+  animation: pulse 3s ease-in-out infinite;
+  filter: blur(40px);
+}
+
+.glowOrb2 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  position: absolute;
+  animation: pulse 2s ease-in-out infinite reverse;
+  filter: blur(30px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.neutronStar {
+  width: 400px;
+  height: 500px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toroidalField {
+  width: 350px;
+  height: 350px;
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 30%,
+    rgba(0, 240, 255, 0.15) 40%,
+    rgba(0, 240, 255, 0.25) 50%,
+    rgba(0, 240, 255, 0.15) 60%,
+    transparent 70%,
+    transparent 100%
+  );
+  animation: toroidalPulse 3s ease-in-out infinite;
+  transform: rotateX(60deg);
+  filter: blur(2px);
+}
+
+@keyframes toroidalPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: rotateX(60deg) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: rotateX(60deg) scale(1.1);
+  }
+}
+
+.polarJetTop {
+  width: 20px;
+  height: 200px;
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(0, 240, 255, 0.8) 20%,
+    rgba(0, 240, 255, 0.6) 40%,
+    rgba(0, 240, 255, 0.3) 60%,
+    transparent 100%
+  );
+  border-radius: 10px;
+  animation: jetPulse 1.5s ease-in-out infinite;
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(0, 240, 255, 0.6),
+    0 0 60px rgba(0, 240, 255, 0.4);
+  filter: blur(1px);
+}
+
+.polarJetBottom {
+  width: 20px;
+  height: 200px;
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(0, 240, 255, 0.8) 20%,
+    rgba(0, 240, 255, 0.6) 40%,
+    rgba(0, 240, 255, 0.3) 60%,
+    transparent 100%
+  );
+  border-radius: 10px;
+  animation: jetPulse 1.5s ease-in-out infinite;
+  animation-delay: 0.75s;
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(0, 240, 255, 0.6),
+    0 0 60px rgba(0, 240, 255, 0.4);
+  filter: blur(1px);
+}
+
+@keyframes jetPulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translateX(-50%) scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scaleY(1.2);
+  }
+}
+
+.starCore {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(0, 240, 255, 0.9) 20%,
+    rgba(0, 240, 255, 0.7) 40%,
+    rgba(0, 240, 255, 0.5) 60%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  position: absolute;
+  z-index: 10;
+  animation: corePulse 2s ease-in-out infinite;
+  box-shadow: 
+    0 0 30px rgba(255, 255, 255, 0.9),
+    0 0 60px rgba(0, 240, 255, 0.8),
+    0 0 90px rgba(0, 240, 255, 0.6),
+    0 0 120px rgba(0, 240, 255, 0.4);
+}
+
+@keyframes corePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 
+      0 0 30px rgba(255, 255, 255, 0.9),
+      0 0 60px rgba(0, 240, 255, 0.8),
+      0 0 90px rgba(0, 240, 255, 0.6),
+      0 0 120px rgba(0, 240, 255, 0.4);
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.95;
+    box-shadow: 
+      0 0 40px rgba(255, 255, 255, 1),
+      0 0 80px rgba(0, 240, 255, 0.9),
+      0 0 120px rgba(0, 240, 255, 0.7),
+      0 0 160px rgba(0, 240, 255, 0.5);
+  }
+}
+
+.energyRing1 {
+  width: 140px;
+  height: 140px;
+  border: 3px solid rgba(0, 240, 255, 0.7);
+  border-radius: 50%;
+  position: absolute;
+  animation: rotateRing1 10s linear infinite;
+  box-shadow: 
+    0 0 20px rgba(0, 240, 255, 0.6),
+    inset 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.energyRing2 {
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgba(0, 240, 255, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  animation: rotateRing2 15s linear infinite reverse;
+  box-shadow: 
+    0 0 25px rgba(0, 240, 255, 0.5),
+    inset 0 0 25px rgba(0, 240, 255, 0.15);
+}
+
+.energyRing3 {
+  width: 260px;
+  height: 260px;
+  border: 2px solid rgba(0, 240, 255, 0.4);
+  border-radius: 50%;
+  position: absolute;
+  animation: rotateRing3 20s linear infinite;
+  box-shadow: 
+    0 0 30px rgba(0, 240, 255, 0.4),
+    inset 0 0 30px rgba(0, 240, 255, 0.1);
+}
+
+.particle1,
+.particle2,
+.particle3,
+.particle4,
+.particle5,
+.particle6,
+.particle7,
+.particle8 {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 
+    0 0 8px rgba(255, 255, 255, 0.8),
+    0 0 16px rgba(0, 240, 255, 0.6);
+  z-index: 5;
+}
+
+.particle1 {
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: orbit1 8s linear infinite;
+}
+
+.particle2 {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: orbit2 8s linear infinite;
+}
+
+.particle3 {
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: orbit3 8s linear infinite;
+}
+
+.particle4 {
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: orbit4 8s linear infinite;
+}
+
+.particle5 {
+  top: 60px;
+  right: 60px;
+  animation: orbit5 10s linear infinite;
+}
+
+.particle6 {
+  bottom: 60px;
+  left: 60px;
+  animation: orbit6 10s linear infinite;
+}
+
+.particle7 {
+  top: 60px;
+  left: 60px;
+  animation: orbit7 12s linear infinite;
+}
+
+.particle8 {
+  bottom: 60px;
+  right: 60px;
+  animation: orbit8 12s linear infinite;
+}
+
+@keyframes rotateRing1 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateRing2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes rotateRing3 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit1 {
+  from {
+    transform: translateX(-50%) rotate(0deg) translateX(0px) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg) translateX(0px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit2 {
+  from {
+    transform: translateX(-50%) rotate(0deg) translateX(0px) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(-360deg) translateX(0px) rotate(360deg);
+  }
+}
+
+@keyframes orbit3 {
+  from {
+    transform: translateY(-50%) rotate(0deg) translateY(0px) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg) translateY(0px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit4 {
+  from {
+    transform: translateY(-50%) rotate(0deg) translateY(0px) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(-360deg) translateY(0px) rotate(360deg);
+  }
+}
+
+@keyframes orbit5 {
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
+
+@keyframes orbit6 {
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg) translateX(150px) rotate(360deg);
+  }
+}
+
+@keyframes orbit7 {
+  from {
+    transform: rotate(45deg) translateX(150px) rotate(-45deg);
+  }
+  to {
+    transform: rotate(405deg) translateX(150px) rotate(-405deg);
+  }
+}
+
+@keyframes orbit8 {
+  from {
+    transform: rotate(45deg) translateX(150px) rotate(-45deg);
+  }
+  to {
+    transform: rotate(-315deg) translateX(150px) rotate(315deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.floatingElement {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #00f0ff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+  animation: float linear;
+  pointer-events: none;
+}
+
+@keyframes float {
+  from {
+    bottom: 0;
+    opacity: 1;
+  }
+  to {
+    bottom: 100%;
+    opacity: 0;
+  }
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scrollIndicator span {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 968px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .heroVisual {
+    height: 300px;
+  }
+
+  .glowOrb {
+    width: 200px;
+    height: 200px;
+  }
+
+  .neutronStar {
+    width: 300px;
+    height: 400px;
+  }
+
+  .toroidalField {
+    width: 280px;
+    height: 280px;
+  }
+
+  .polarJetTop,
+  .polarJetBottom {
+    height: 150px;
+  }
+
+  .starCore {
+    width: 60px;
+    height: 60px;
+  }
+
+  .energyRing1 {
+    width: 120px;
+    height: 120px;
+  }
+
+  .energyRing2 {
+    width: 170px;
+    height: 170px;
+  }
+
+  .energyRing3 {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .ctaButtons {
+    justify-content: center;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
