@@ -7,6 +7,7 @@ import { AnimatePresence, motion, useScroll } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 import Button from '@/components/ui/Button'
+import BrandLogo from '@/components/BrandLogo'
 import { cn } from '@/lib/cn'
 
 const navLinks = [
@@ -51,9 +52,7 @@ export default function Navbar() {
     <>
       <header className="fixed top-0 z-50 w-full border-b border-black-border bg-black/90 backdrop-blur-md">
         <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="font-serif text-lg font-bold tracking-tight text-white-pure">
-            Ecom Therapy
-          </Link>
+          <BrandLogo size="header" />
 
           <nav className="hidden items-center gap-8 md:flex">
             {navLinks.map((item) => (
@@ -61,7 +60,7 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'font-mono text-[11px] uppercase tracking-[0.15em] text-white-muted transition-colors duration-200 hover:text-white-pure',
+                  'font-mono text-[12px] uppercase tracking-[0.15em] text-white-muted transition-colors duration-200 hover:text-white-pure',
                   pathname === item.href && 'border-b border-white-pure pb-0.5 text-white-pure'
                 )}
               >
@@ -71,7 +70,7 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden md:block">
-            <Button variant="primary" size="sm" href="/contact">
+            <Button variant="primary" size="sm" href="/ecom-therapy-pricing-guide.html">
               Get a Quote
             </Button>
           </div>
@@ -118,6 +117,15 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+              <motion.div variants={itemVariants}>
+                <a
+                  href="/ecom-therapy-pricing-guide.html"
+                  onClick={() => setOpen(false)}
+                  className="block font-serif text-4xl text-white-pure"
+                >
+                  Get a Quote
+                </a>
+              </motion.div>
             </motion.nav>
           </motion.div>
         )}

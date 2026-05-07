@@ -2,11 +2,14 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
+import { FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
+
+import { SOCIAL_LINKS } from '@/lib/social'
 import { ShieldCheck, Zap, Code2, Cloud, Brain, Smartphone, Layout, TestTube } from 'lucide-react'
 
 import SectionLabel from '@/components/ui/SectionLabel'
 import Button from '@/components/ui/Button'
+import BrandLogo from '@/components/BrandLogo'
 
 const marqueeItems =
   'React ✦ Next.js ✦ TypeScript ✦ Node.js ✦ Python ✦ AWS ✦ Docker ✦ Kubernetes ✦ PostgreSQL ✦ GraphQL ✦ TensorFlow ✦ PyTorch ✦ CI/CD ✦ LLMs ✦ React Native ✦ Terraform ✦'
@@ -281,10 +284,10 @@ export default function HomePage() {
         {/* Footer */}
         <div className="mx-auto mt-20 flex max-w-7xl flex-col items-center justify-between gap-8 border-t border-black-border px-8 pt-8 md:flex-row">
           <div className="flex items-center gap-4">
-            <span className="font-serif text-white-pure">Ecom Therapy</span>
-            <span className="font-mono text-[11px] text-white-muted">© 2025</span>
+            <BrandLogo size="footer" link={false} />
+            <span className="font-mono text-[12px] text-white-muted">© 2025</span>
           </div>
-          <nav className="flex flex-wrap justify-center gap-8 font-mono text-[11px] text-white-muted">
+          <nav className="flex flex-wrap justify-center gap-8 font-mono text-[12px] text-white-muted">
             {['Services', 'Work', 'Process', 'About', 'Contact'].map((item) => (
               <Link
                 key={item}
@@ -296,14 +299,32 @@ export default function HomePage() {
             ))}
           </nav>
           <div className="flex gap-6">
-            <a href="#" aria-label="LinkedIn" className="text-white-muted transition-colors hover:text-white-pure">
+            <a
+              href={SOCIAL_LINKS.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-white-muted transition-colors hover:text-white-pure"
+            >
               <FaLinkedinIn className="h-4 w-4" />
             </a>
-            <a href="#" aria-label="Twitter" className="text-white-muted transition-colors hover:text-white-pure">
-              <FaTwitter className="h-4 w-4" />
+            <a
+              href={SOCIAL_LINKS.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-white-muted transition-colors hover:text-white-pure"
+            >
+              <FaInstagram className="h-4 w-4" />
             </a>
-            <a href="#" aria-label="GitHub" className="text-white-muted transition-colors hover:text-white-pure">
-              <FaGithub className="h-4 w-4" />
+            <a
+              href={SOCIAL_LINKS.whatsappBusiness}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp Business"
+              className="text-white-muted transition-colors hover:text-white-pure"
+            >
+              <FaWhatsapp className="h-4 w-4" />
             </a>
           </div>
         </div>

@@ -52,9 +52,25 @@ const Contact = () => {
               <p><FaGlobe /> www.ecomtherapy.co.in</p>
               <p><FaMapMarkerAlt /> India (Remote-first, serving global brands)</p>
               <div className={styles.socialLinks}>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer"><FaLinkedin /></a>
-                <a href="https://instagram.com" target="_blank" rel="noreferrer"><FaInstagram /></a>
-                <a href="https://wa.me/910000000000" target="_blank" rel="noreferrer"><FaWhatsapp /></a>
+                <a
+                  href="https://www.linkedin.com/in/ecom-therapy-pvt-ltd-704768238/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin />
+                </a>
+                <a
+                  href="https://www.instagram.com/ecom_therapy_pvt_ltd/"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram />
+                </a>
+                <a href="https://wa.me/919122872786" target="_blank" rel="noreferrer" aria-label="WhatsApp Business">
+                  <FaWhatsapp />
+                </a>
               </div>
             </div>
           </div>

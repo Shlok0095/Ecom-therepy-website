@@ -40,9 +40,20 @@ export function Button({
   const classes = cn(variantClasses[variant], size !== 'md' ? sizeClasses[size] : '', className)
 
   if (href) {
-    if (href.startsWith('mailto:') || href.startsWith('tel:')) {
+    if (
+      href.startsWith('mailto:') ||
+      href.startsWith('tel:') ||
+      href.endsWith('.html') ||
+      href.startsWith('http://') ||
+      href.startsWith('https://')
+    ) {
+      const external = href.startsWith('http://') || href.startsWith('https://')
       return (
-        <a href={href} className={cn('inline-flex items-center justify-center', classes)}>
+        <a
+          href={href}
+          className={cn('inline-flex items-center justify-center', classes)}
+          {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        >
           {children}
         </a>
       )
@@ -55,7 +66,7 @@ export function Button({
   }
 
   return (
-    <button type="button" className={cn('inline-flex items-center justify-center', classes)} {...props}>
+    <button className={cn('inline-flex items-center justify-center', classes)} type="button" {...props}>
       {children}
     </button>
   )

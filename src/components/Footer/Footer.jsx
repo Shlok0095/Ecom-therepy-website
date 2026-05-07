@@ -26,8 +26,7 @@ const Footer = () => {
             <h4>Connect</h4>
             <p>LinkedIn</p>
             <p>Instagram</p>
-            <p>WhatsApp</p>
-            <p>GitHub</p>
+            <p>WhatsApp Business</p>
           </div>
         </div>
         <form className={styles.newsletter}>
