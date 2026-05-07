@@ -7,6 +7,8 @@ export const SOCIAL_LINKS = {
   whatsappBusinessPhone: '919122872786',
 } as const
 
-/** Set `NEXT_PUBLIC_CALENDLY_URL` in `.env.local` to your scheduling page (e.g. https://calendly.com/your-handle/discovery) */
+/** Public booking page — override with NEXT_PUBLIC_CALENDLY_URL if you change event types */
+const DEFAULT_CALENDLY_BOOKING = 'https://calendly.com/shlok-kumar0-1-2-3-4/new-meeting'
+
 export const CALENDLY_BOOKING_URL =
-  process.env.NEXT_PUBLIC_CALENDLY_URL?.trim() || 'https://calendly.com/'
+  process.env.NEXT_PUBLIC_CALENDLY_URL?.trim() || DEFAULT_CALENDLY_BOOKING
