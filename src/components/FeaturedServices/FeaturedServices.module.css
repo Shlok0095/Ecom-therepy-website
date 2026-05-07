@@ -1,0 +1,91 @@
+.featuredServices {
+  padding: 6rem 2rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.badge {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  margin: 0.6rem 0;
+}
+
+.subtitle {
+  color: var(--text-muted);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.serviceCard {
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-soft);
+  padding: 1.4rem 0;
+  transition: all 0.3s ease;
+}
+
+.serviceCard:hover {
+  padding-left: 0.5rem;
+}
+
+.serviceTitle {
+  font-size: 1.2rem;
+  margin: 0.4rem 0;
+}
+
+.serviceDescription {
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.number {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+}
+
+.detail {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.2s ease;
+  color: #fff;
+}
+
+.serviceCard:hover .detail {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta {
+  text-align: center;
+}
+
+.viewAllBtn {
+  padding: 0.8rem 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+

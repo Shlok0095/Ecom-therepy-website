@@ -1,9 +1,10 @@
 .aiWorks {
-  min-height: 100vh;
+  min-height: calc(100vh - 100px);
   padding: 8rem 2rem;
   position: relative;
   z-index: 10;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 136, 0.03) 100%);
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 182, 212, 0.02) 100%);
+  overflow: visible;
 }
 
 .container {
@@ -19,46 +20,26 @@
 .badge {
   display: inline-block;
   padding: 0.5rem 1.5rem;
-  background: rgba(0, 255, 136, 0.1);
-  border: 1px solid rgba(0, 255, 136, 0.3);
-  border-radius: 50px;
-  color: #00ff88;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 8px;
+  color: #06b6d4;
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  animation: pulseGlow 2s ease-in-out infinite;
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
-  }
 }
 
 .title {
   font-size: 3.5rem;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #00ff88 0%, #00f0ff 100%);
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: textShimmer 3s ease-in-out infinite;
-}
-
-@keyframes textShimmer {
-  0%, 100% {
-    filter: brightness(1);
-  }
-  50% {
-    filter: brightness(1.3);
-  }
 }
 
 .highlight {
-  color: #00f0ff;
+  color: #3b82f6;
 }
 
 .subtitle {
@@ -73,9 +54,9 @@
 }
 
 .projectCard {
-  background: rgba(21, 21, 32, 0.6);
-  border: 1px solid rgba(0, 255, 136, 0.2);
-  border-radius: 25px;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 12px;
   padding: 3rem;
   color: var(--text-primary);
   position: relative;
@@ -104,8 +85,8 @@
 }
 
 .projectCard:hover {
-  border-color: rgba(0, 255, 136, 0.5);
-  box-shadow: 0 20px 60px rgba(0, 255, 136, 0.2);
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 8px 30px rgba(6, 182, 212, 0.15);
 }
 
 .cardGlow {
@@ -114,7 +95,7 @@
   left: 50%;
   width: 0;
   height: 0;
-  background: radial-gradient(circle, rgba(0, 255, 136, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: width 0.5s ease, height 0.5s ease;
@@ -136,36 +117,24 @@
 }
 
 .iconWrapper {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--gradient);
-  border-radius: 20px;
-  font-size: 2.5rem;
+  border-radius: 12px;
+  font-size: 2rem;
   color: white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.iconWrapper::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.5s ease, height 0.5s ease;
-}
-
-.projectCard:hover .iconWrapper::before {
-  width: 200px;
-  height: 200px;
+.projectCard:hover .iconWrapper {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.25);
 }
 
 .projectTitle {
@@ -195,29 +164,22 @@
 
 .techTag {
   padding: 0.4rem 1rem;
-  background: rgba(0, 255, 136, 0.1);
-  border: 1px solid rgba(0, 255, 136, 0.3);
-  border-radius: 20px;
-  color: #00ff88;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 8px;
+  color: #06b6d4;
   font-size: 0.85rem;
   font-weight: 600;
-  animation: tagPulse 2s ease-in-out infinite;
-  animation-delay: calc(var(--i, 0) * 0.2s);
+  transition: all 0.3s ease;
 }
 
-@keyframes tagPulse {
-  0%, 100% {
-    opacity: 0.8;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
+.techTag:hover {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: rgba(6, 182, 212, 0.4);
 }
 
 .viewProject {
-  color: #00ff88;
+  color: #06b6d4;
   font-weight: 600;
   font-size: 1rem;
   position: relative;
@@ -229,6 +191,11 @@
   cursor: pointer;
   font-family: inherit;
   margin-top: 1rem;
+  transition: color 0.3s ease;
+}
+
+.viewProject:hover {
+  color: #22d3ee;
 }
 
 .viewProject::after {
@@ -238,7 +205,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: #00ff88;
+  background: #06b6d4;
   transition: width 0.3s ease;
 }
 

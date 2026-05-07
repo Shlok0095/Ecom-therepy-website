@@ -8,10 +8,12 @@
   backdrop-filter: blur(10px);
   z-index: 10000;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 2rem;
   overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .detailContainer {
@@ -20,8 +22,7 @@
   border-radius: 30px;
   max-width: 1400px;
   width: 100%;
-  max-height: 90vh;
-  overflow: hidden;
+  margin: 2rem auto;
   position: relative;
   box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3);
   display: flex;
@@ -60,8 +61,6 @@
   gap: 4rem;
   padding: 4rem;
   position: relative;
-  height: 100%;
-  overflow: hidden;
   align-items: start;
 }
 
@@ -69,10 +68,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  overflow-y: auto;
-  max-height: calc(90vh - 8rem);
   padding-right: 1rem;
-  height: 100%;
 }
 
 .leftSection::-webkit-scrollbar {
@@ -100,32 +96,22 @@
 }
 
 .iconContainer {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--gradient);
-  border-radius: 25px;
-  font-size: 3.5rem;
+  border-radius: 12px;
+  font-size: 3rem;
   color: white;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-  animation: iconFloat 3s ease-in-out infinite;
-}
-
-@keyframes iconFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .title {
   font-size: 3.5rem;
   font-weight: 900;
-  background: linear-gradient(135deg, #00ff88 0%, #00f0ff 100%);
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -164,20 +150,20 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: rgba(0, 255, 136, 0.05);
-  border: 1px solid rgba(0, 255, 136, 0.2);
-  border-radius: 12px;
+  background: rgba(6, 182, 212, 0.05);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 8px;
   color: var(--text-primary);
   transition: all 0.3s ease;
 }
 
 .featureItem:hover {
-  background: rgba(0, 255, 136, 0.1);
-  border-color: rgba(0, 255, 136, 0.4);
+  background: rgba(6, 182, 212, 0.1);
+  border-color: rgba(6, 182, 212, 0.4);
 }
 
 .checkIcon {
-  color: #00ff88;
+  color: #06b6d4;
   font-size: 1.2rem;
 }
 
@@ -195,8 +181,8 @@
 
 .useCasesList li {
   padding: 1rem;
-  background: rgba(0, 240, 255, 0.05);
-  border-left: 3px solid #00f0ff;
+  background: rgba(59, 130, 246, 0.05);
+  border-left: 3px solid #3b82f6;
   border-radius: 8px;
   color: var(--text-primary);
   position: relative;
@@ -207,7 +193,7 @@
   content: '→';
   position: absolute;
   left: 0.5rem;
-  color: #00f0ff;
+  color: #3b82f6;
   font-weight: bold;
 }
 
@@ -223,10 +209,10 @@
 
 .techTag {
   padding: 0.8rem 1.5rem;
-  background: rgba(0, 255, 136, 0.1);
-  border: 1px solid rgba(0, 255, 136, 0.3);
-  border-radius: 25px;
-  color: #00ff88;
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 8px;
+  color: #06b6d4;
   font-weight: 600;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -241,9 +227,9 @@
 .ctaButton {
   margin-top: 2rem;
   padding: 1.2rem 2.5rem;
-  background: linear-gradient(135deg, #00ff88, #00f0ff);
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
   border: none;
-  border-radius: 50px;
+  border-radius: 8px;
   color: var(--dark-bg);
   font-size: 1.2rem;
   font-weight: 700;
@@ -266,12 +252,10 @@
   align-items: center;
   justify-content: center;
   min-height: 500px;
-  max-height: calc(90vh - 8rem);
   position: sticky;
   top: 2rem;
   align-self: start;
   height: fit-content;
-  overflow: hidden;
 }
 
 @media (max-width: 1200px) {
@@ -286,8 +270,13 @@
 }
 
 @media (max-width: 768px) {
+  .overlay {
+    padding: 1rem;
+    align-items: flex-start;
+  }
+
   .detailContainer {
-    padding: 2rem;
+    margin: 1rem auto;
   }
 
   .content {
@@ -304,6 +293,12 @@
     right: 1rem;
     width: 40px;
     height: 40px;
+  }
+
+  .rightSection {
+    position: relative;
+    top: 0;
+    min-height: 300px;
   }
 }
 

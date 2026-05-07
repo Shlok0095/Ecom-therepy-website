@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import styles from './Header.module.css'
@@ -18,38 +18,17 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const navItems = [
-    { name: 'Home', path: '/', isRoute: true },
-    { name: 'About', path: '#about', isRoute: false },
-    { name: 'Services', path: '/services', isRoute: true },
-    { name: 'AIWorks', path: '/aiworks', isRoute: true },
-    { name: 'Portfolio', path: '#portfolio', isRoute: false },
-    { name: 'Contact', path: '#contact', isRoute: false },
-  ]
+  const navItems = ['Services', 'Work', 'Process', 'About', 'Contact']
 
-  const handleNavClick = (item) => {
-    if (item.isRoute) {
-      navigate(item.path)
-      setIsMobileMenuOpen(false)
+  const handleNavClick = (id) => {
+    const sectionId = id.toLowerCase()
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' }), 100)
     } else {
-      if (location.pathname !== '/') {
-        navigate('/')
-        setTimeout(() => {
-          const sectionId = item.path.replace('#', '')
-          const element = document.getElementById(sectionId)
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' })
-          }
-        }, 100)
-      } else {
-        const sectionId = item.path.replace('#', '')
-        const element = document.getElementById(sectionId)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
-        }
-      }
-      setIsMobileMenuOpen(false)
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
     }
+    setIsMobileMenuOpen(false)
   }
 
   return (
@@ -60,53 +39,16 @@ const Header = () => {
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       <div className={styles.container}>
-        <motion.div
-          className={styles.logo}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => navigate('/')}
-          style={{ cursor: 'pointer' }}
-        >
-          <span className={styles.logoText}>NeUTRON</span>
-          <span className={styles.logoWeb}>WEB</span>
-        </motion.div>
+        <button className={styles.logo} onClick={() => navigate('/')}>Ecom Therapy</button>
 
         <nav className={styles.nav}>
-          {navItems.map((item, index) => (
-            item.isRoute ? (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Link
-                  to={item.path}
-                  className={`${styles.navLink} ${location.pathname === item.path ? styles.active : ''}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              </motion.div>
-            ) : (
-              <motion.a
-                key={item.name}
-                href={item.path}
-                onClick={(e) => {
-                  e.preventDefault()
-                  handleNavClick(item)
-                }}
-                className={styles.navLink}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.1, color: '#00f0ff' }}
-              >
-                {item.name}
-              </motion.a>
-            )
+          {navItems.map((item) => (
+            <button key={item} className={styles.navLink} onClick={() => handleNavClick(item)}>
+              {item}
+            </button>
           ))}
         </nav>
+        <button className={styles.ctaBtn} onClick={() => handleNavClick('Contact')}>Book a Free Call</button>
 
         <motion.button
           className={styles.mobileMenuBtn}
@@ -127,39 +69,15 @@ const Header = () => {
             transition={{ duration: 0.3 }}
           >
             {navItems.map((item, index) => (
-              item.isRoute ? (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Link
-                    to={item.path}
-                    className={`${styles.mobileNavLink} ${location.pathname === item.path ? styles.active : ''}`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ) : (
-                <motion.a
-                  key={item.name}
-                  href={item.path}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    handleNavClick(item)
-                  }}
-                  className={styles.mobileNavLink}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ x: 10, color: '#00f0ff' }}
-                >
-                  {item.name}
-                </motion.a>
-              )
+              <button
+                key={item}
+                className={styles.mobileNavLink}
+                onClick={() => handleNavClick(item)}
+              >
+                {item}
+              </button>
             ))}
+            <button className={styles.ctaBtn} onClick={() => handleNavClick('Contact')}>Book a Free Call</button>
           </motion.div>
         )}
       </AnimatePresence>

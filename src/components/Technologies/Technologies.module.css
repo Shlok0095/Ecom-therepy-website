@@ -1,0 +1,63 @@
+.technologies {
+  padding: 6rem 2rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.badge {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  margin-top: 0.5rem;
+}
+
+.categoriesGrid {
+  display: flex;
+  gap: 1rem;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 1rem;
+}
+
+.categoryCard {
+  flex: 1;
+  border-left: 1px solid var(--line-soft);
+  padding: 0 0 0 1rem;
+}
+
+.categoryTitle {
+  font-size: 1.15rem;
+  margin: 0.4rem 0;
+}
+
+.stepNo {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .categoriesGrid {
+    flex-direction: column;
+  }
+}
+
+
+

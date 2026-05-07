@@ -100,32 +100,22 @@
 }
 
 .iconContainer {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--gradient);
-  border-radius: 25px;
-  font-size: 3.5rem;
+  border-radius: 12px;
+  font-size: 3rem;
   color: white;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-  animation: iconFloat 3s ease-in-out infinite;
-}
-
-@keyframes iconFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .title {
   font-size: 3.5rem;
   font-weight: 900;
-  background: linear-gradient(135deg, #00f0ff 0%, #ff00ff 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -161,20 +151,20 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: rgba(0, 240, 255, 0.05);
-  border: 1px solid rgba(0, 240, 255, 0.2);
-  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 8px;
   color: var(--text-primary);
   transition: all 0.3s ease;
 }
 
 .featureItem:hover {
-  background: rgba(0, 240, 255, 0.1);
-  border-color: rgba(0, 240, 255, 0.4);
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.4);
 }
 
 .checkIcon {
-  color: #00ff88;
+  color: #06b6d4;
   font-size: 1.2rem;
 }
 
@@ -192,8 +182,8 @@
 
 .benefitsList li {
   padding: 1rem;
-  background: rgba(255, 0, 255, 0.05);
-  border-left: 3px solid #ff00ff;
+  background: rgba(139, 92, 246, 0.05);
+  border-left: 3px solid #8b5cf6;
   border-radius: 8px;
   color: var(--text-primary);
   position: relative;
@@ -204,7 +194,7 @@
   content: '→';
   position: absolute;
   left: 0.5rem;
-  color: #ff00ff;
+  color: #8b5cf6;
   font-weight: bold;
 }
 
@@ -220,10 +210,10 @@
 
 .techTag {
   padding: 0.8rem 1.5rem;
-  background: rgba(0, 240, 255, 0.1);
-  border: 1px solid rgba(0, 240, 255, 0.3);
-  border-radius: 25px;
-  color: #00f0ff;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #3b82f6;
   font-weight: 600;
   font-size: 0.95rem;
   transition: all 0.3s ease;

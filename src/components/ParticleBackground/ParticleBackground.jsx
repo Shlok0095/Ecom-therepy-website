@@ -23,11 +23,11 @@ const ParticleBackground = () => {
           interactivity: {
             events: {
               onClick: {
-                enable: true,
+                enable: false,
                 mode: 'push',
               },
               onHover: {
-                enable: true,
+                enable: false,
                 mode: 'repulse',
               },
               resize: true,
@@ -44,13 +44,13 @@ const ParticleBackground = () => {
           },
           particles: {
             color: {
-              value: ['#00f0ff', '#ff00ff', '#00ff88'],
+              value: ['#ffffff'],
             },
             links: {
-              color: '#00f0ff',
+              color: '#ffffff',
               distance: 150,
               enable: true,
-              opacity: 0.3,
+              opacity: 0.08,
               width: 1,
             },
             move: {
@@ -60,7 +60,7 @@ const ParticleBackground = () => {
                 default: 'bounce',
               },
               random: false,
-              speed: 1,
+              speed: 0.35,
               straight: false,
             },
             number: {
@@ -68,10 +68,10 @@ const ParticleBackground = () => {
                 enable: true,
                 area: 800,
               },
-              value: 80,
+              value: 45,
             },
             opacity: {
-              value: 0.5,
+              value: 0.15,
               random: true,
               anim: {
                 enable: true,
@@ -81,7 +81,7 @@ const ParticleBackground = () => {
               },
             },
             shape: {
-              type: ['circle', 'triangle', 'polygon'],
+              type: ['circle'],
             },
             size: {
               value: { min: 1, max: 4 },

@@ -128,7 +128,7 @@ const WebDevPhase2 = () => (
         <div className={styles.browserDots}>
           <span></span><span></span><span></span>
         </div>
-        <div className={styles.browserUrl}>https://nutronweb.com</div>
+        <div className={styles.browserUrl}>https://www.ecomtherapy.co.in</div>
       </div>
       <div className={styles.webContent}>
         <motion.div
@@ -231,7 +231,7 @@ const DesignPhase1 = () => (
         animate={{ scale: 1 }}
         transition={{ delay: 0.6, type: 'spring' }}
       >
-        {['#00f0ff', '#ff00ff', '#00ff88'].map((color, i) => (
+        {['#3b82f6', '#8b5cf6', '#06b6d4'].map((color, i) => (
           <motion.div
             key={i}
             className={styles.colorSwatch}

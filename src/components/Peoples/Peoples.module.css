@@ -1,0 +1,227 @@
+.peoples {
+  padding: 8rem 2rem;
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  background: linear-gradient(180deg, transparent 0%, rgba(59, 130, 246, 0.02) 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  color: #3b82f6;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.highlight {
+  color: #06b6d4;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.peopleGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.personCard {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.personCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.personCard:hover::before {
+  transform: scaleX(1);
+}
+
+.personCard:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
+  transform: translateY(-5px);
+}
+
+.imageWrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: var(--gradient);
+  padding: 4px;
+  margin: 0 auto;
+}
+
+.personImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.iconFallback {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  background: var(--gradient);
+  border-radius: 50%;
+}
+
+.imageContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: var(--gradient);
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+
+.personCard:hover .imageContainer::after {
+  opacity: 0.4;
+}
+
+.iconWrapper {
+  position: absolute;
+  bottom: -10px;
+  right: calc(50% - 90px + 140px);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient);
+  border-radius: 12px;
+  font-size: 1.5rem;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.personCard:hover .iconWrapper {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+.personInfo {
+  padding-top: 1rem;
+}
+
+.personName {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.personRole {
+  font-size: 1rem;
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.personDescription {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .peoples {
+    padding: 4rem 2rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .peopleGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .imageContainer {
+    width: 150px;
+    height: 150px;
+  }
+
+  .iconWrapper {
+    right: calc(50% - 75px + 120px);
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+
