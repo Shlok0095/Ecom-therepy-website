@@ -5,6 +5,8 @@ import { ChevronRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 import SectionLabel from '@/components/ui/SectionLabel'
+import { PageHero } from '@/components/layout/PageHero'
+import { pageHeroAssets } from '@/lib/pageHeroAssets'
 import { services } from '@/lib/content'
 
 const container = {
@@ -23,15 +25,16 @@ const rowMotion = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="border-b border-black-border px-8 py-32">
+      <PageHero imageSrc={pageHeroAssets.services.src} imageAlt={pageHeroAssets.services.alt}>
         <SectionLabel>Our Services</SectionLabel>
         <h1 className="mt-4 max-w-2xl font-serif text-fluid-h2 text-white-pure">
           End-to-end software services for modern businesses.
         </h1>
         <p className="mt-4 max-w-xl font-sans leading-relaxed text-white-muted">
-          From frontend interfaces to cloud infrastructure — we cover the full stack so you don&apos;t have to stitch together multiple vendors.
+          We cover frontend through cloud infrastructure as one engineering partner so you can avoid
+          coordinating multiple vendors for the same product.
         </p>
-      </section>
+      </PageHero>
 
       <motion.section
         className="px-4 pb-32 pt-0 md:px-8"

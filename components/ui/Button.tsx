@@ -16,16 +16,26 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<Variant, string> = {
-  primary:
-    'bg-white-pure text-black font-semibold uppercase tracking-[0.12em] text-xs px-8 py-4 rounded-none border border-white-pure hover:bg-black hover:text-white-pure transition-all duration-200',
-  secondary:
-    'bg-transparent text-white-pure border border-white-pure uppercase tracking-[0.12em] text-xs px-8 py-4 rounded-none hover:bg-white-pure hover:text-black transition-all duration-200',
+  primary: cn(
+    'relative overflow-hidden bg-pearl text-void font-semibold uppercase tracking-[0.14em] text-xs',
+    'px-8 py-4 rounded-full border border-white/10',
+    'shadow-[0_0_0_1px_rgba(255,255,255,0.06)_inset,0_12px_40px_-16px_rgba(0,0,0,0.55)]',
+    'transition-[transform,box-shadow,color,background-color] duration-300 ease-out',
+    'hover:-translate-y-0.5 hover:shadow-[0_16px_48px_-14px_rgba(0,0,0,0.5)]',
+    'active:translate-y-0'
+  ),
+  secondary: cn(
+    'rounded-full border border-white/18 bg-white/[0.04] px-8 py-4',
+    'font-semibold uppercase tracking-[0.14em] text-xs text-pearl',
+    'backdrop-blur-xl shadow-[0_0_0_1px_rgba(255,255,255,0.04)_inset]',
+    'transition-all duration-300 hover:border-white/28 hover:bg-white/[0.08]'
+  ),
   ghost:
-    'text-white-muted uppercase tracking-[0.12em] text-xs hover:text-white-pure underline-offset-4 hover:underline',
+    'text-white-muted uppercase tracking-[0.18em] text-xs underline-offset-4 hover:text-accent-muted transition-colors duration-300',
 }
 
 const sizeClasses: Record<Size, string> = {
-  sm: 'px-6 py-3 text-[11px]',
+  sm: 'px-6 py-3 text-[11px] rounded-full',
   md: '',
 }
 

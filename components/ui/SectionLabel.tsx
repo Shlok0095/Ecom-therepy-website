@@ -1,11 +1,22 @@
 import type { ReactNode } from 'react'
 
+import { cn } from '@/lib/cn'
+
 type SectionLabelProps = {
   children: ReactNode
+  className?: string
 }
 
-export default function SectionLabel({ children }: SectionLabelProps) {
+/** Uppercase mono label above section headings (no decorative rules). */
+export default function SectionLabel({ children, className }: SectionLabelProps) {
   return (
-    <span className="font-mono text-xs uppercase tracking-[0.2em] text-white-muted">{children}</span>
+    <span
+      className={cn(
+        'font-mono text-[11px] uppercase tracking-[0.28em] text-white-muted',
+        className
+      )}
+    >
+      {children}
+    </span>
   )
 }

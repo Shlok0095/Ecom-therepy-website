@@ -28,9 +28,9 @@ export default function WorkSlugPage({ params }: PageProps) {
           Case studies coming soon.
         </h1>
         <p className="mt-6 max-w-xl font-sans leading-relaxed text-white-muted">
-          We are currently working on documenting our project work. In the meantime, reach out
-          directly — we are happy to discuss what we can build for you and walk through our
-          approach in a discovery call.
+          We are currently working on documenting our project work. In the meantime, you can reach out
+          directly. We are happy to discuss what we can build and review our approach on a discovery
+          call.
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Button variant="primary" href="/contact">

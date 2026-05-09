@@ -1,16 +1,17 @@
 'use client'
 
-import { motion } from 'framer-motion'
-
 import SectionLabel from '@/components/ui/SectionLabel'
 import Button from '@/components/ui/Button'
+import { ScrollStory } from '@/components/gsap/ScrollStory'
+import { PageHero } from '@/components/layout/PageHero'
+import { pageHeroAssets } from '@/lib/pageHeroAssets'
 
 const steps = [
   {
     n: '01',
     duration: 'Week 1',
     title: 'Discovery & Scoping',
-    desc: 'We dig into your requirements, existing codebase and infrastructure. No assumptions — we start with your actual constraints and goals.',
+    desc: 'We review your requirements, existing codebase, and infrastructure. We work from stated constraints and goals, not assumptions.',
     deliverables: [
       'Technical requirements document',
       'Architecture options & trade-offs',
@@ -34,7 +35,7 @@ const steps = [
     n: '03',
     duration: 'Week 2 → Launch',
     title: 'Agile Engineering',
-    desc: 'Two-week sprints with demo at the end of each. Code reviewed, tested and deployed to staging continuously — no big-bang releases.',
+    desc: 'Two-week sprints with a demo at the end of each. Code is reviewed, tested, and deployed to staging continuously, without single cutover releases.',
     deliverables: [
       'Working software every sprint',
       'Unit + integration test suite',
@@ -70,34 +71,34 @@ const steps = [
 
 export default function ProcessPage() {
   return (
-    <>
-      <section className="border-b border-black-border px-8 py-32">
-        <SectionLabel>How We Work</SectionLabel>
-        <h1 className="mt-4 font-serif text-fluid-h2 text-white-pure">
+    <ScrollStory>
+      <PageHero
+        data-scroll-pin
+        imageSrc={pageHeroAssets.process.src}
+        imageAlt={pageHeroAssets.process.alt}
+      >
+        <div data-pin-reveal>
+          <SectionLabel>How We Work</SectionLabel>
+        </div>
+        <h1 data-pin-reveal className="mt-4 font-serif text-fluid-h2 text-white-pure">
           A proven process for software delivery.
         </h1>
-        <p className="mt-6 max-w-2xl font-sans leading-relaxed text-white-muted">
+        <p data-pin-reveal className="mt-6 max-w-2xl font-sans leading-relaxed text-white-muted">
           Not a black box. Not a fixed-bid nightmare. A transparent, milestone-driven process with
           working software at the end of every sprint.
         </p>
-      </section>
+      </PageHero>
 
-      <section className="relative mx-auto max-w-5xl px-8 pb-8 pt-16">
+      <section data-story-track className="relative mx-auto max-w-5xl px-8 pb-8 pt-16">
         <div
-          className="absolute bottom-0 left-[7.25rem] top-16 w-px bg-white/10 md:left-28"
+          data-story-line
+          className="absolute bottom-0 left-[7.25rem] top-16 w-px origin-top scale-y-0 bg-white/10 md:left-28"
           aria-hidden
         />
 
         <div className="space-y-0">
           {steps.map((step) => (
-            <motion.article
-              key={step.n}
-              className="relative pb-20 pl-24 md:pl-32"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            >
+            <article key={step.n} data-story-card className="relative pb-20 pl-24 md:pl-32">
               <div className="absolute left-[5px] top-2 h-2.5 w-2.5 rounded-full border-2 border-black bg-white-pure md:left-3" />
               <div className="flex flex-col gap-8 md:flex-row md:gap-12">
                 <div className="w-24 shrink-0 pt-1">
@@ -106,9 +107,7 @@ export default function ProcessPage() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <h2 className="font-serif text-3xl text-white-pure">{step.title}</h2>
-                  <p className="mt-3 max-w-lg font-sans leading-relaxed text-white-muted">
-                    {step.desc}
-                  </p>
+                  <p className="mt-3 max-w-lg font-sans leading-relaxed text-white-muted">{step.desc}</p>
                   <ul className="mt-4 space-y-2">
                     {step.deliverables.map((d) => (
                       <li key={d} className="font-mono text-[11px] tracking-[0.1em] text-white-muted">
@@ -118,7 +117,7 @@ export default function ProcessPage() {
                   </ul>
                 </div>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </section>
@@ -129,6 +128,6 @@ export default function ProcessPage() {
           Kick Off a Project
         </Button>
       </section>
-    </>
+    </ScrollStory>
   )
 }

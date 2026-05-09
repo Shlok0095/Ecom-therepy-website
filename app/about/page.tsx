@@ -3,13 +3,15 @@ import { ShieldCheck, Code2, Users, Lightbulb } from 'lucide-react'
 
 import SectionLabel from '@/components/ui/SectionLabel'
 import Button from '@/components/ui/Button'
+import { PageHero } from '@/components/layout/PageHero'
+import { pageHeroAssets } from '@/lib/pageHeroAssets'
 
 const principles = [
   {
     icon: Code2,
     n: '01',
     title: 'Engineering First',
-    body: 'We are engineers at heart. Clean architecture, tested code and thorough documentation are not optional — they are the deliverable. Every project is built to be maintained, extended and handed over cleanly.',
+    body: 'We are engineers at heart. Clean architecture, tested code, and thorough documentation are part of the deliverable. Every project is built to be maintained, extended, and handed over cleanly.',
   },
   {
     icon: ShieldCheck,
@@ -20,14 +22,14 @@ const principles = [
   {
     icon: Users,
     n: '03',
-    title: 'Radical Transparency',
-    body: 'You own the repository, the infrastructure and the data from day one. We share progress openly — no black boxes, no locked-in vendor dependencies, no surprises at billing time.',
+    title: 'Operational Transparency',
+    body: 'You own the repository, infrastructure, and data from day one. We share progress openly: no opaque handoffs, no unnecessary vendor lock-in, and billing stays predictable.',
   },
   {
     icon: Lightbulb,
     n: '04',
     title: 'Outcomes Over Output',
-    body: 'Lines of code are not the goal. Working, secure, performant software that solves a real problem is. We measure success in uptime, adoption and value delivered — not story points closed.',
+    body: 'Lines of code are not the goal. We measure success by uptime, adoption, and value delivered, rather than activity metrics alone.',
   },
 ]
 
@@ -40,34 +42,23 @@ const capabilities = [
   'Mobile App Development',
   'UI/UX Design & Prototyping',
   'Security Audits & QA',
+  'Maintenance & Support',
 ]
 
 export default function AboutPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden border-b border-black-border py-32">
-        <div className="pointer-events-none absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80"
-            alt=""
-            fill
-            className="object-cover img-bw opacity-10"
-            sizes="100vw"
-            priority
-          />
-        </div>
-        <div className="relative z-10 px-8">
-          <SectionLabel>About Us</SectionLabel>
-          <h1 className="mt-4 max-w-3xl font-serif text-fluid-hero text-white-pure">
-            We are Ecom Therapy.
-          </h1>
-          <p className="mt-6 max-w-lg font-sans text-xl leading-relaxed text-white-muted">
-            A software and IT solutions studio focused on building reliable, secure and scalable
-            digital products for businesses ready to grow through technology.
-          </p>
-        </div>
-      </section>
+      <PageHero imageSrc={pageHeroAssets.about.src} imageAlt={pageHeroAssets.about.alt}>
+        <SectionLabel>About Us</SectionLabel>
+        <h1 className="mt-4 max-w-3xl font-serif text-fluid-hero text-white-pure">
+          We are Ecom Therapy.
+        </h1>
+        <p className="mt-6 max-w-lg font-sans text-xl leading-relaxed text-white-muted">
+          A software and IT solutions studio focused on building reliable, secure and scalable
+          digital products for businesses ready to grow through technology.
+        </p>
+      </PageHero>
 
       {/* ── Mission ── */}
       <section className="grid grid-cols-1 gap-0 border-b border-black-border md:grid-cols-2">
@@ -75,18 +66,18 @@ export default function AboutPage() {
           <h2 className="font-serif text-fluid-h3 text-white-pure">Why we exist.</h2>
           <div className="mt-6 space-y-5 font-sans leading-relaxed text-white-muted">
             <p>
-              Too many businesses operate on fragile, outdated or insecure software — not because
-              they chose to, but because finding a partner who takes engineering quality seriously
-              is genuinely hard.
+              Too many businesses operate on fragile, outdated, or insecure software. Often this is not
+              a deliberate choice; it reflects how difficult it can be to find a partner who treats
+              engineering quality as non-negotiable.
             </p>
             <p>
-              Ecom Therapy was founded to change that. We bring senior-level engineering discipline
-              to every engagement — whether you are a startup launching your first product or a
-              growing business replacing a legacy system.
+              Ecom Therapy was founded to address that gap. We apply consistent engineering discipline
+              across engagements, whether you are launching a first product or replacing a legacy system.
             </p>
             <p>
-              We do not outsource, we do not cut corners on security, and we do not lock you into
-              proprietary platforms. You get clean, documented, maintainable code — every time.
+              We do not outsource core delivery, we do not compromise on security, and we do not lock you
+              into proprietary platforms. You receive clean, documented, maintainable code on every
+              engagement.
             </p>
           </div>
         </div>
@@ -126,9 +117,12 @@ export default function AboutPage() {
       <section className="border-b border-black-border px-8 py-24">
         <SectionLabel>Capabilities</SectionLabel>
         <h2 className="mt-4 font-serif text-fluid-h2 text-white-pure">What we can build.</h2>
-        <div className="mt-12 grid grid-cols-1 gap-px bg-black-border sm:grid-cols-2 md:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-px bg-black-border sm:grid-cols-2 md:grid-cols-3">
           {capabilities.map((cap) => (
-            <div key={cap} className="bg-black px-6 py-5">
+            <div
+              key={cap}
+              className="bg-black px-6 py-5 sm:[&:nth-child(9)]:col-span-2 md:[&:nth-child(9)]:col-span-1"
+            >
               <span className="font-mono text-[11px] tracking-[0.1em] text-white-muted">
                 ↳ {cap}
               </span>
@@ -142,7 +136,7 @@ export default function AboutPage() {
         <div>
           <h3 className="font-serif text-3xl text-white-pure">Ready to build with us?</h3>
           <p className="mt-2 font-sans text-white-muted">
-            Tell us about your project — we respond within 24 hours.
+            Tell us about your project. We respond within 24 hours.
           </p>
         </div>
         <Button variant="primary" href="/contact">

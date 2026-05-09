@@ -22,13 +22,13 @@ const menuVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
-    transition: { staggerChildren: 0.08 },
+    transition: { staggerChildren: 0.06, delayChildren: 0.04 },
   },
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, x: -24 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
 }
 
 export default function Navbar() {
@@ -50,21 +50,28 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-0 z-50 w-full border-b border-black-border bg-black/90 backdrop-blur-md">
-        <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6">
+      <header className="fixed top-0 z-50 w-full border-b border-white/[0.08] bg-void/75 backdrop-blur-md backdrop-saturate-125">
+        <div className="mx-auto flex h-[5.125rem] w-full max-w-[90rem] items-center justify-between px-6 lg:px-10">
           <BrandLogo size="header" />
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-10 md:flex">
             {navLinks.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'font-mono text-[12px] uppercase tracking-[0.15em] text-white-muted transition-colors duration-200 hover:text-white-pure',
-                  pathname === item.href && 'border-b border-white-pure pb-0.5 text-white-pure'
+                  'group relative font-mono text-[11px] uppercase tracking-[0.22em] text-white-muted transition-colors duration-300',
+                  'hover:text-pearl',
+                  pathname === item.href && 'text-pearl'
                 )}
               >
                 {item.label}
+                <span
+                  className={cn(
+                    'absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-white/45 transition-transform duration-300 ease-out group-hover:scale-x-100',
+                    pathname === item.href && 'scale-x-100'
+                  )}
+                />
               </Link>
             ))}
           </nav>
@@ -77,7 +84,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="text-white-pure md:hidden"
+            className="text-pearl md:hidden"
             aria-label="Toggle menu"
             data-hover
             onClick={() => setOpen((prev) => !prev)}
@@ -87,7 +94,7 @@ export default function Navbar() {
         </div>
 
         <motion.div
-          className="h-0.5 w-full origin-left bg-white-pure"
+          className="h-[2px] w-full origin-left bg-white/35"
           style={{ scaleX: scrollYProgress }}
         />
       </header>
@@ -95,13 +102,13 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-40 bg-black pt-28 md:hidden"
+            className="fixed inset-0 z-40 bg-void/98 pt-[5.5rem] backdrop-blur-3xl md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
             <motion.nav
-              className="flex flex-col gap-4 px-6"
+              className="flex flex-col gap-2 px-6"
               variants={menuVariants}
               initial="hidden"
               animate="show"
@@ -111,7 +118,7 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block font-serif text-4xl text-white-pure"
+                    className="block border-b border-white/[0.06] py-4 font-serif text-4xl tracking-tight text-pearl"
                   >
                     {item.label}
                   </Link>
@@ -121,7 +128,7 @@ export default function Navbar() {
                 <a
                   href="/ecom-therapy-pricing-guide.html"
                   onClick={() => setOpen(false)}
-                  className="block font-serif text-4xl text-white-pure"
+                  className="block py-4 font-serif text-4xl tracking-tight text-white-muted"
                 >
                   Get a Quote
                 </a>

@@ -195,6 +195,28 @@ export const services: ServiceItem[] = [
       'Security findings report with remediation guidance',
     ],
   },
+  {
+    slug: 'maintenance',
+    number: '09',
+    title: 'Maintenance & Support',
+    short:
+      'Ongoing monitoring, updates, and incident response so production systems stay stable after launch.',
+    description:
+      'Structured retainers for production systems: health monitoring, dependency and security patching, performance tuning, backups and restore drills, and documented change windows. We align to your uptime expectations with clear SLAs, ticketing, and regular review calls so technical debt stays visible and manageable.',
+    tags: ['SLA', 'Monitoring', 'Patching', 'Runbooks'],
+    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85',
+    image2: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1400&q=85',
+    highlights: [
+      'Uptime and error monitoring with alerting (PagerDuty, Opsgenie, email)',
+      'Scheduled dependency, runtime, and security patch cycles',
+      'Incident triage, root-cause notes, and post-incident summaries',
+      'Database backups, retention checks, and restore verification',
+      'Performance reviews (Core Web Vitals, API latency, cost)',
+      'Runbooks and on-call handover aligned to your team',
+      'Small feature fixes and refinements within agreed scope',
+      'Monthly or quarterly engineering review reports',
+    ],
+  },
 ]
 
 export function getServiceBySlug(slug: string): ServiceItem | undefined {

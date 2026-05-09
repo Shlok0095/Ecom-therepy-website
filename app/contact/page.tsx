@@ -8,6 +8,8 @@ import { FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 import SectionLabel from '@/components/ui/SectionLabel'
 import { CALENDLY_BOOKING_URL, SOCIAL_LINKS } from '@/lib/social'
 import Button from '@/components/ui/Button'
+import { PageHero } from '@/components/layout/PageHero'
+import { pageHeroAssets } from '@/lib/pageHeroAssets'
 
 type FormState = {
   name: string
@@ -37,7 +39,7 @@ function buildWhatsAppMessage(f: FormState): string {
     budgetLine || '',
     '',
     '*Project details:*',
-    f.message.trim() || '—',
+    f.message.trim() || '(No additional details.)',
   ]
   return lines.filter(Boolean).join('\n')
 }
@@ -61,16 +63,16 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="border-b border-black-border px-8 py-24">
+      <PageHero imageSrc={pageHeroAssets.contact.src} imageAlt={pageHeroAssets.contact.alt}>
         <SectionLabel>Get In Touch</SectionLabel>
         <h1 className="mt-4 max-w-2xl font-serif text-fluid-h2 text-white-pure">
           Let&apos;s build something great.
         </h1>
         <p className="mt-4 max-w-lg font-sans text-white-muted">
-          Tell us about your project. We&apos;ll come back with a technical approach, timeline and
-          honest estimate — within 24 hours.
+          Tell us about your project. We will respond with a technical approach, timeline, and estimate
+          within 24 hours.
         </p>
-      </section>
+      </PageHero>
 
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-8 pb-32 pt-16 md:grid-cols-2">
         <div>
@@ -120,7 +122,8 @@ export default function ContactPage() {
               <option value="Mobile App">Mobile App</option>
               <option value="UI/UX Design">UI/UX Design</option>
               <option value="QA & Security Audit">QA &amp; Security Audit</option>
-              <option value="Not sure — let's talk">Not sure — let&apos;s talk</option>
+              <option value="Maintenance & Support">Maintenance &amp; Support</option>
+              <option value="Not sure (discuss with us)">Not sure (discuss with us)</option>
             </select>
             <select
               name="budgetRange"
@@ -135,7 +138,7 @@ export default function ContactPage() {
               <option value="₹1,50,000 – ₹3,00,000">₹1,50,000 – ₹3,00,000</option>
               <option value="₹3,00,000 – ₹5,00,000">₹3,00,000 – ₹5,00,000</option>
               <option value="Above ₹5,00,000">Above ₹5,00,000</option>
-              <option value="Not sure — let's talk">Not sure — let&apos;s talk</option>
+              <option value="Not sure (discuss with us)">Not sure (discuss with us)</option>
             </select>
             <textarea
               name="message"
@@ -150,7 +153,7 @@ export default function ContactPage() {
               Send on WhatsApp →
             </Button>
             <p className="mt-3 font-mono text-[11px] text-white-muted">
-              Opens WhatsApp with your answers filled in — send the chat when you&apos;re ready. We
+              Opens WhatsApp with your answers filled in. Send the message when you are ready. We
               typically reply within 24 hours.
             </p>
           </form>
@@ -225,8 +228,8 @@ export default function ContactPage() {
           <div className="mt-10 border border-black-border bg-black-surface p-8">
             <h4 className="font-serif text-xl text-white-pure">Book an appointment</h4>
             <p className="mt-2 text-sm leading-relaxed text-white-muted">
-              Choose an available slot on Calendly for a free 30-minute call. We&apos;ll review your
-              requirements and outline next steps — no commitment required.
+              Choose an available slot on Calendly for a free 30-minute call. We will review your
+              requirements and outline next steps. No commitment is required.
             </p>
             <Button variant="secondary" className="mt-6 w-full" href={CALENDLY_BOOKING_URL}>
               Book an appointment →

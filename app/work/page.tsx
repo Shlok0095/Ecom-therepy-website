@@ -2,6 +2,8 @@ import Image from 'next/image'
 
 import SectionLabel from '@/components/ui/SectionLabel'
 import Button from '@/components/ui/Button'
+import { PageHero } from '@/components/layout/PageHero'
+import { pageHeroAssets } from '@/lib/pageHeroAssets'
 import { cn } from '@/lib/cn'
 
 const projectTypes = [
@@ -23,7 +25,7 @@ const projectTypes = [
     image:
       'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=2400&q=92',
     description:
-      'Practical AI integrations that fit into your existing product — not a standalone demo. LLM-powered assistants, RAG document search, anomaly detection and computer vision pipelines.',
+      'Practical AI integrations embedded in your existing product, including LLM assistants, RAG search, anomaly detection, and computer vision pipelines.',
     examples: [
       'AI-powered search & Q&A',
       'Document intelligence tools',
@@ -44,7 +46,7 @@ const projectTypes = [
     image:
       'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=2400&q=92',
     description:
-      'AWS and GCP environments built to production standards from the start — containerised workloads, auto-scaling, observability and zero-downtime deployments via CI/CD.',
+      'AWS and GCP environments built to production standards: containerised workloads, auto-scaling, observability, and zero-downtime deployments through CI/CD.',
     examples: ['Kubernetes clusters', 'Serverless architectures', 'Data pipelines', 'Disaster recovery setups'],
   },
   {
@@ -52,7 +54,7 @@ const projectTypes = [
     image:
       'https://images.unsplash.com/photo-1616348436168-de43ad0db179?auto=format&fit=crop&w=2400&q=92',
     description:
-      'iOS and Android apps built with React Native or Flutter — shared codebase, native performance, offline support and in-app payment integration.',
+      'iOS and Android apps using React Native or Flutter: shared codebase, native performance, offline support, and in-app payments where required.',
     examples: ['Consumer apps', 'Field service tools', 'Marketplace apps', 'IoT companion apps'],
   },
   {
@@ -68,16 +70,16 @@ const projectTypes = [
 export default function WorkPage() {
   return (
     <>
-      <section className="border-b border-black-border px-6 py-24 md:px-8 md:py-32">
+      <PageHero imageSrc={pageHeroAssets.work.src} imageAlt={pageHeroAssets.work.alt}>
         <SectionLabel>What We Build</SectionLabel>
         <h1 className="mt-4 font-serif text-fluid-h2 text-white-pure">
           Types of projects we take on.
         </h1>
         <p className="mt-4 max-w-xl font-sans leading-relaxed text-white-muted">
-          From greenfield SaaS products to cloud migrations and security audits — here is the range
-          of work we are equipped to deliver.
+          From greenfield SaaS products to cloud migrations and security audits, this is the range of
+          work we are equipped to deliver.
         </p>
-      </section>
+      </PageHero>
 
       <section className="mx-auto max-w-7xl space-y-2 px-4 py-12 md:px-8 md:py-16">
         {projectTypes.map((type, i) => (
@@ -123,7 +125,7 @@ export default function WorkPage() {
         <div>
           <h3 className="font-serif text-2xl text-white-pure md:text-3xl">Have a project in mind?</h3>
           <p className="mt-2 font-sans text-white-muted">
-            Describe what you need — we will come back with an approach and estimate.
+            Describe what you need. We will respond with an approach and estimate.
           </p>
         </div>
         <Button variant="primary" href="/contact">
