@@ -7,16 +7,27 @@ type BrandLogoProps = {
   link?: boolean
 }
 
-/** Typographic wordmark only (Instrument Serif). */
+/** Typographic wordmark: two-tone serif lockup (Instrument Serif). */
 export default function BrandLogo({ size = 'header', link = true }: BrandLogoProps) {
-  const wordmarkClass = cn(
-    'select-none font-serif font-normal tracking-tight text-pearl antialiased',
+  const sizeClass =
     size === 'header' ? 'text-[1.35rem] leading-none md:text-[1.55rem]' : 'text-xl leading-none md:text-[1.45rem]'
-  )
 
   const mark = (
-    <span className={cn(wordmarkClass, link && 'transition-opacity duration-300 group-hover:opacity-[0.92]')}>
-      Ecom Therapy
+    <span
+      className={cn(
+        'inline-flex select-none items-baseline gap-[0.22em] font-serif font-normal tracking-tight antialiased',
+        sizeClass
+      )}
+    >
+      <span className="text-pearl">Ecom</span>
+      <span
+        className={cn(
+          'text-accent-muted/95',
+          link && 'transition-colors duration-300 group-hover:text-mist'
+        )}
+      >
+        Therapy
+      </span>
     </span>
   )
 
