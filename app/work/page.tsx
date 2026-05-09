@@ -102,17 +102,15 @@ export default function WorkPage() {
               />
             </div>
             <div className="flex w-full min-w-0 flex-col justify-center gap-5 p-6 md:w-[55%] md:gap-6 md:p-10">
-              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white-muted md:text-[12px]">
-                {String(i + 1).padStart(2, '0')}
-              </p>
               <h2 className="font-serif text-2xl text-white-pure md:text-3xl">{type.category}</h2>
               <p className="font-sans text-base leading-relaxed text-white-muted">
                 {type.description}
               </p>
               <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                 {type.examples.map((ex) => (
-                  <li key={ex} className="font-mono text-[11px] leading-snug text-white-muted md:text-[12px]">
-                    ↳ {ex}
+                  <li key={ex} className="relative pl-4 font-sans text-[13px] leading-snug text-white-muted md:text-sm">
+                    <span className="absolute left-0 top-[0.55em] h-1 w-1 rounded-full bg-white-muted/55" aria-hidden />
+                    {ex}
                   </li>
                 ))}
               </ul>

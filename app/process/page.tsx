@@ -8,7 +8,6 @@ import { pageHeroAssets } from '@/lib/pageHeroAssets'
 
 const steps = [
   {
-    n: '01',
     duration: 'Week 1',
     title: 'Discovery & Scoping',
     desc: 'We review your requirements, existing codebase, and infrastructure. We work from stated constraints and goals, not assumptions.',
@@ -20,7 +19,6 @@ const steps = [
     ],
   },
   {
-    n: '02',
     duration: 'Week 1–2',
     title: 'Architecture & Design',
     desc: 'System design, data modelling, API contracts and UI/UX wireframes agreed before a single line of production code is written.',
@@ -32,7 +30,6 @@ const steps = [
     ],
   },
   {
-    n: '03',
     duration: 'Week 2 → Launch',
     title: 'Agile Engineering',
     desc: 'Two-week sprints with a demo at the end of each. Code is reviewed, tested, and deployed to staging continuously, without single cutover releases.',
@@ -44,7 +41,6 @@ const steps = [
     ],
   },
   {
-    n: '04',
     duration: 'Pre-Launch',
     title: 'QA, Security & Performance',
     desc: 'Automated E2E tests, load testing to 10× expected traffic, OWASP security checklist and Lighthouse scores verified before go-live.',
@@ -56,7 +52,6 @@ const steps = [
     ],
   },
   {
-    n: '05',
     duration: 'Ongoing',
     title: 'Launch & Iteration',
     desc: 'We deploy, monitor and support. Post-launch retainer for bug fixes, feature iterations and infrastructure scaling as you grow.',
@@ -98,20 +93,22 @@ export default function ProcessPage() {
 
         <div className="space-y-0">
           {steps.map((step) => (
-            <article key={step.n} data-story-card className="relative pb-20 pl-24 md:pl-32">
+            <article key={step.title} data-story-card className="relative pb-20 pl-24 md:pl-32">
               <div className="absolute left-[5px] top-2 h-2.5 w-2.5 rounded-full border-2 border-black bg-white-pure md:left-3" />
               <div className="flex flex-col gap-8 md:flex-row md:gap-12">
-                <div className="w-24 shrink-0 pt-1">
-                  <p className="font-mono text-sm text-white-muted">{step.n}</p>
-                  <p className="mt-1 font-mono text-[10px] text-white/40">{step.duration}</p>
+                <div className="w-28 shrink-0 pt-1 md:w-36">
+                  <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.14em] text-white-muted">
+                    {step.duration}
+                  </p>
                 </div>
                 <div className="min-w-0 flex-1">
                   <h2 className="font-serif text-3xl text-white-pure">{step.title}</h2>
                   <p className="mt-3 max-w-lg font-sans leading-relaxed text-white-muted">{step.desc}</p>
                   <ul className="mt-4 space-y-2">
                     {step.deliverables.map((d) => (
-                      <li key={d} className="font-mono text-[11px] tracking-[0.1em] text-white-muted">
-                        ↳ {d}
+                      <li key={d} className="relative pl-4 font-sans text-sm leading-snug text-white-muted">
+                        <span className="absolute left-0 top-[0.55em] h-1 w-1 rounded-full bg-white-muted/60" aria-hidden />
+                        {d}
                       </li>
                     ))}
                   </ul>

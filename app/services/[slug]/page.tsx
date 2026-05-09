@@ -29,14 +29,14 @@ export default function ServiceDetailPage({ params }: PageProps) {
     <article className="pb-24">
       {/* ── Hero header ── */}
       <section className="border-b border-black-border px-8 py-24">
-        <SectionLabel>Service {service.number}</SectionLabel>
+        <SectionLabel>Overview</SectionLabel>
         <h1 className="mt-6 max-w-3xl font-serif text-fluid-h2 text-white-pure">{service.title}</h1>
         <p className="mt-4 max-w-2xl font-sans text-lg leading-relaxed text-white-muted">{service.short}</p>
         <div className="mt-8 flex flex-wrap gap-2">
           {service.tags.map((tag) => (
             <span
               key={tag}
-              className="border border-black-border px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-white-muted"
+              className="border border-black-border px-3 py-1.5 font-sans text-[11px] tracking-wide text-white-muted"
             >
               {tag}
             </span>

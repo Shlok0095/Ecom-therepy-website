@@ -42,14 +42,13 @@ export default function ServicesPage() {
         initial="hidden"
         animate="show"
       >
-        {services.map((service) => (
+          {services.map((service) => (
           <motion.div key={service.slug} variants={rowMotion}>
             <Link
               href={`/services/${service.slug}`}
-              className="group flex cursor-pointer flex-wrap gap-6 border-b border-black-border py-10 transition-colors duration-200 hover:bg-black-surface md:flex-nowrap md:gap-0"
+              className="group flex cursor-pointer flex-wrap gap-6 border-b border-black-border py-10 transition-colors duration-200 hover:bg-black-surface md:flex-nowrap md:gap-8"
             >
-              <div className="w-16 shrink-0 font-mono text-sm text-white-muted">{service.number}</div>
-              <div className="min-w-0 flex-1 pl-0 md:pl-8">
+              <div className="min-w-0 flex-1">
                 <h2 className="font-serif text-2xl text-white-pure">{service.title}</h2>
                 <p className="mt-1 font-sans text-sm text-white-muted">{service.short}</p>
               </div>
@@ -57,7 +56,7 @@ export default function ServicesPage() {
                 {service.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-none border border-black-border px-2 py-1 font-mono text-[10px] text-white-muted"
+                    className="rounded-none border border-black-border px-2 py-1 font-sans text-[11px] text-white-muted"
                   >
                     {tag}
                   </span>

@@ -9,25 +9,21 @@ import { pageHeroAssets } from '@/lib/pageHeroAssets'
 const principles = [
   {
     icon: Code2,
-    n: '01',
     title: 'Engineering First',
     body: 'We are engineers at heart. Clean architecture, tested code, and thorough documentation are part of the deliverable. Every project is built to be maintained, extended, and handed over cleanly.',
   },
   {
     icon: ShieldCheck,
-    n: '02',
     title: 'Security by Default',
     body: 'Security is not a checkbox at the end of a project. Secure coding standards, OWASP compliance, dependency scanning and penetration testing are part of every engagement from day one.',
   },
   {
     icon: Users,
-    n: '03',
     title: 'Operational Transparency',
     body: 'You own the repository, infrastructure, and data from day one. We share progress openly: no opaque handoffs, no unnecessary vendor lock-in, and billing stays predictable.',
   },
   {
     icon: Lightbulb,
-    n: '04',
     title: 'Outcomes Over Output',
     body: 'Lines of code are not the goal. We measure success by uptime, adoption, and value delivered, rather than activity metrics alone.',
   },
@@ -100,10 +96,9 @@ export default function AboutPage() {
           {principles.map((p) => {
             const Icon = p.icon
             return (
-              <div key={p.n} className="border-t border-black-border pt-8">
+              <div key={p.title} className="border-t border-black-border pt-8">
                 <div className="flex items-center gap-3">
                   <Icon className="h-4 w-4 text-white-muted" />
-                  <p className="font-mono text-[11px] text-white-muted">{p.n}</p>
                 </div>
                 <h3 className="mt-3 font-serif text-2xl text-white-pure">{p.title}</h3>
                 <p className="mt-3 font-sans leading-relaxed text-white-muted">{p.body}</p>
@@ -123,9 +118,7 @@ export default function AboutPage() {
               key={cap}
               className="bg-black px-6 py-5 sm:[&:nth-child(9)]:col-span-2 md:[&:nth-child(9)]:col-span-1"
             >
-              <span className="font-mono text-[11px] tracking-[0.1em] text-white-muted">
-                ↳ {cap}
-              </span>
+              <span className="font-sans text-sm leading-snug text-white-muted">{cap}</span>
             </div>
           ))}
         </div>

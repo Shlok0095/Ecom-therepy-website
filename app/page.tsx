@@ -217,11 +217,8 @@ export default function HomePage() {
                 >
                   <Link href={s.href} className="group block h-full">
                     <GlassCard className="flex h-full flex-col p-8 md:p-10">
-                      <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-start justify-start">
                         <Icon className="h-6 w-6 text-white-muted transition-colors duration-300 group-hover:text-pearl" />
-                        <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-white-muted/70">
-                          {String(i + 1).padStart(2, '0')}
-                        </span>
                       </div>
                       <h3 className="mt-8 font-serif text-2xl text-pearl md:text-[1.65rem]">{s.title}</h3>
                       <p className="mt-4 flex-1 font-sans text-sm leading-relaxed text-white-muted md:text-[15px]">
@@ -270,7 +267,7 @@ export default function HomePage() {
                 ].map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-3 rounded-xl border border-white/[0.05] bg-white/[0.02] px-4 py-3 font-mono text-[11px] uppercase tracking-[0.12em] text-white-muted"
+                    className="flex items-start gap-3 rounded-xl border border-white/[0.05] bg-white/[0.02] px-4 py-3 font-sans text-sm leading-snug text-white-muted"
                   >
                     <span className="mt-0.5 text-pearl/80" aria-hidden>
                       ◆
@@ -306,19 +303,18 @@ export default function HomePage() {
             Transparent phases. Predictable cadence. No black boxes.
           </h2>
           <div className="mt-16 grid gap-4 md:grid-cols-5">
-            {[
-              { n: '01', label: 'Discovery & Scoping' },
-              { n: '02', label: 'Architecture & Design' },
-              { n: '03', label: 'Agile Engineering' },
-              { n: '04', label: 'QA & Security Audit' },
-              { n: '05', label: 'Launch & Support' },
-            ].map((step) => (
+            {([
+              'Discovery & Scoping',
+              'Architecture & Design',
+              'Agile Engineering',
+              'QA & Security Audit',
+              'Launch & Support',
+            ] as const).map((label) => (
               <div
-                key={step.n}
+                key={label}
                 className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 backdrop-blur-xl transition-colors duration-300 hover:border-white/[0.14]"
               >
-                <p className="font-mono text-[11px] tracking-[0.28em] text-white-muted">{step.n}</p>
-                <p className="mt-5 font-serif text-lg leading-snug text-pearl">{step.label}</p>
+                <p className="font-serif text-lg leading-snug text-pearl">{label}</p>
                 <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-white/[0.06] blur-2xl transition-opacity duration-300 group-hover:opacity-100" />
               </div>
             ))}
